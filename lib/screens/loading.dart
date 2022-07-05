@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'result_screen.dart';
 
 const apiKey = '1bac530ca18c4cc3b688';
-const productName = '후루룩국수';
+const foodName = '후루룩국수';
 
 class Loading extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class _LoadingState extends State<Loading> {
   }
 
   void fetchData() async{
-    final url = Uri.parse('http://openapi.foodsafetykorea.go.kr/api/${apiKey}/I2790/json/1/5/DESC_KOR=${productName}');
+    final url = Uri.parse('http://openapi.foodsafetykorea.go.kr/api/${apiKey}/I2790/json/1/5/DESC_KOR=${foodName}');
     http.Response response = await http.get(url);
     if(response.statusCode == 200){
       String jsonData = response.body;
@@ -61,7 +61,7 @@ class _LoadingState extends State<Loading> {
 
           onPressed: null,
           child: Text(
-            'product name: ${productName}',
+            'product name: ${foodName}',
             style: TextStyle(
                 color: Colors.white
             ),
